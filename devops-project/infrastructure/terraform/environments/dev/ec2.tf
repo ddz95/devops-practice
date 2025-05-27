@@ -1,7 +1,5 @@
-resource "aws_instance" "ec2" {
-  ami           = var.ec2_ami_id
-  instance_type = var.ec2_instance_type
-  tags = {
-    Name = "Hello World!"
-  }
+module "ec2" {
+  source            = "../../modules/ec2"
+  instance_type = "t2.micro"
+  ami_id       = "ami-00a44bd8918c7ee43"
 }
