@@ -4,14 +4,14 @@ variable "bucket" {
   default = ""
 }
 
-variable "default_region" {
-  description = "Default AWS region to use if not specified."
+variable "bucket_arn" {
+  description = "ARN of the S3 bucket. If not specified, it will be derived from the bucket name."
   type = string
-  default = "eu-central-1"
+  default = ""
 }
 
-variable "region" {
-  description = "AWS region where the S3 bucket will be created."
+variable "default_region" {
+  description = "Default AWS region to use if not specified."
   type = string
   default = "eu-central-1"
 }
