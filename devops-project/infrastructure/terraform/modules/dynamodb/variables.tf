@@ -1,7 +1,7 @@
 variable "name" {
   description = "The name of the DynamoDB table."
   type        = string
-  default = ""
+  default     = ""
 }
 
 variable "billing_mode" {
@@ -25,13 +25,13 @@ variable "write_capacity" {
 variable "hash_key" {
   description = "The attribute name to use as the hash key for the DynamoDB table."
   type        = string
-  default = "LockID"
+  default     = "LockID"
 }
 
 variable "tags" {
   description = "Optional map of tags for the S3 bucket."
-  type = map(string)
-  default = {}
+  type        = map(string)
+  default     = {}
 }
 
 /**

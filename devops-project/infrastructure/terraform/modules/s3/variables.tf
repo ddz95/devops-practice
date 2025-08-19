@@ -1,45 +1,51 @@
-variable "bucket" {
+variable "bucket_name" {
   description = "S3 bucket name. If not specified, a unique name will be generated."
-  type = string
-  default = ""
+  type        = string
+  default     = ""
+}
+
+variable "bucket_id" {
+  description = "ID of the S3 bucket. If not specified, it will be derived from the bucket name."
+  type        = string
+  default     = ""
 }
 
 variable "bucket_arn" {
   description = "ARN of the S3 bucket. If not specified, it will be derived from the bucket name."
-  type = string
-  default = ""
+  type        = string
+  default     = ""
 }
 
 variable "default_region" {
   description = "Default AWS region to use if not specified."
-  type = string
-  default = "eu-central-1"
+  type        = string
+  default     = "eu-central-1"
 }
 
 variable "force_destroy" {
   description = "Boolean to indicate if the bucket should be forcefully destroyed."
-  type = bool
-  default = false
+  type        = bool
+  default     = false
 }
 
 variable "object_lock" {
   description = "Boolean to enable object lock on the S3 bucket."
-  type = bool
-  default = false
+  type        = bool
+  default     = false
 }
 
 variable "versioning_status" {
   description = "Versioning status for the S3 bucket, can be 'Enabled' or 'Suspended'."
-  type = string
-  default = "Unversioned" # * Default to 'Unversioned' to allow bucket creation without versioning
+  type        = string
+  default     = "Unversioned" # * Default to 'Unversioned' to allow bucket creation without versioning
   validation {
-    condition = contains(["Enabled", "Suspended", "Unversioned"], var.versioning_status)
+    condition     = contains(["Enabled", "Suspended", "Unversioned"], var.versioning_status)
     error_message = "versioning_status must be one of 'Enabled', 'Suspended', or 'Unversioned'."
   }
 }
 
 variable "tags" {
   description = "Optional map of tags for the S3 bucket."
-  type = map(string)
-  default = {}
+  type        = map(string)
+  default     = {}
 }
